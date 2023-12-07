@@ -1,3 +1,5 @@
+#### THIS PROJECT IS FORKED FROM [patrickbussmann/oauth2-apple] in order to fix a JWT error presents in [0.2.10 version](https://github.com/patrickbussmann/oauth2-apple/tree/0.2.10).
+
 # Sign in with Apple ID Provider for OAuth 2.0 Client
 [![Latest Version](https://img.shields.io/github/release/patrickbussmann/oauth2-apple.svg?style=flat-square)](https://github.com/patrickbussmann/oauth2-apple/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
