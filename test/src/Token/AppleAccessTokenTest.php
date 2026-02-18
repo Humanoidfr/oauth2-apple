@@ -17,7 +17,7 @@ class AppleAccessTokenTest extends TestCase
     {
         $externalJWTMock = m::mock('overload:Firebase\JWT\JWT');
         $externalJWTMock->shouldReceive('decode')
-            ->with('something', 'examplekey')
+            ->with('something', m::type(Key::class))
             ->once()
             ->andReturn([
                 'sub' => '123.abc.123',
@@ -26,7 +26,8 @@ class AppleAccessTokenTest extends TestCase
                 'is_private_email' => true
             ]);
 
-        $accessToken = new AppleAccessToken(['examplekey'], [
+        $key = new Key('examplekey', 'RS256');
+        $accessToken = new AppleAccessToken([$key], [
             'access_token' => 'access_token',
             'token_type' => 'Bearer',
             'expires_in' => 3600,
@@ -47,7 +48,8 @@ class AppleAccessTokenTest extends TestCase
         $this->expectException('\InvalidArgumentException');
         $this->expectExceptionMessage('Required option not passed: "id_token"');
 
-        new AppleAccessToken(['examplekey'], [
+        $key = new Key('examplekey', 'RS256');
+        new AppleAccessToken([$key], [
             'access_token' => 'access_token',
             'token_type' => 'Bearer',
             'expires_in' => 3600,
@@ -76,11 +78,12 @@ class AppleAccessTokenTest extends TestCase
 
         $externalJWTMock = m::mock('overload:Firebase\JWT\JWT');
         $externalJWTMock->shouldReceive('decode')
-            ->with('something', 'examplekey')
+            ->with('something', m::type(Key::class))
             ->once()
             ->andReturnNull();
 
-        new AppleAccessToken(['examplekey'], [
+        $key = new Key('examplekey', 'RS256');
+        new AppleAccessToken([$key], [
             'access_token' => 'access_token',
             'token_type' => 'Bearer',
             'expires_in' => 3600,
