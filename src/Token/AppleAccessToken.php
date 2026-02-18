@@ -3,7 +3,6 @@
 namespace League\OAuth2\Client\Token;
 
 use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 use InvalidArgumentException;
 
 class AppleAccessToken extends AccessToken
@@ -44,16 +43,7 @@ class AppleAccessToken extends AccessToken
             $last = end($keys);
             foreach ($keys as $key) {
                 try {
-                    try {
-                        $decoded = JWT::decode($options['id_token'], $key);
-                    } catch (\UnexpectedValueException $e) {
-                        $headers = new \stdClass();
-                        $decoded = JWT::decode(
-                            $options['id_token'],
-                            new Key($key->getKeyMaterial(), $key->getAlgorithm()),
-                            $headers
-                        );
-                    }
+                    $decoded = JWT::decode($options['id_token'], $key);
                     break;
                 } catch (\Exception $exception) {
                     if ($last === $key) {
