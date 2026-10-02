@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> **Ce dépôt a migré sur GitLab le 2026-10-02 : https://gitlab.humanoid.fr/humanoid/oauth2-apple**
+> Cette copie GitHub est archivée et figée. Contribuer sur GitLab uniquement.
+> Le paquet Composer est encore servi par repman depuis cette copie GitHub : rebrancher la source Composer avant toute évolution sur GitLab.
+
 #### THIS PROJECT IS FORKED FROM [patrickbussmann/oauth2-apple] in order to fix a JWT error presents in [0.2.10 version](https://github.com/patrickbussmann/oauth2-apple/tree/0.2.10).
 
 # Sign in with Apple ID Provider for OAuth 2.0 Client
